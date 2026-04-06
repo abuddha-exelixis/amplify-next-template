@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
 import "./../app/app.css";
+import  Navigation  from "@/components/ui/header";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
@@ -32,56 +33,8 @@ export default function App() {
   }
 
   return (
-    // <main>
     <>
-    <div className="flex items-center bg-white border-b">
-  <div className="logo-section">
-    EXELIXIS
-  </div>
-
-  <nav className="flex-grow bg-white">
-    <div className="flex items-center justify-between w-full">
-      <button className="block lg:hidden p-2 border rounded" type="button" 
-        data-collapse-toggle="navbarNav">
-        <span className="sr-only">Toggle navigation</span>
-        { <svg className="w-6 h-6" fill="none" stroke="currentColor" 
-          viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" 
-            stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg> }
-      </button>
-
-      <div className="hidden lg:flex lg:items-center lg:space-x-6" id="navbarNav">
-        <ul className="flex space-x-6 ml-3 headermenu">
-          <li>
-            <a className="font-semibold text-blue-600 active" href="#">Home</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Register</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Sign In</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Community Support Donations</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Healthcare - Related Charitable Contributions</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Independent Patient Assistance Foundation</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Medical Education Grants</a>
-          </li>
-          <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Sponsorships</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div>
+    <Navigation />
 
 <div className="max-w-7xl mx-auto px-4">
   <div className="content-wrapper space-y-6">
