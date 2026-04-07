@@ -28,8 +28,8 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
         <>
         <div className="flex items-center bg-white border-b">
   <div className="logo-section">
-    {/* <img src="images/logo.png" alt="Exelixis" title="Exelixis" /> */}
-    Exelixis
+    <img src="/images/Exelixis_logo.svg" color="white" alt="Exelixis" title="Exelixis" />
+    {/* Exelixis */}
   </div>
 
   <nav className="flex-grow bg-white">

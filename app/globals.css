@@ -34,7 +34,8 @@ body {
   font-weight: bold;
   font-size: 26px;
   letter-spacing: 2px;
-  padding: 20px 40px;
+  padding: 40px;
+  height: auto;
 }
 
 /* Active nav style */
