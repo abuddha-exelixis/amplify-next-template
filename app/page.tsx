@@ -8,6 +8,7 @@ import  Navigation  from "@/components/ui/header";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
+import Footer from "@/components/ui/footer";
 
 Amplify.configure(outputs);
 
@@ -88,10 +89,11 @@ export default function App() {
       You may also contact the Exelixis team via email at
       <a href="mailto:grants@exelixis.com" className="text-blue-600 underline">grants@exelixis.com</a>
       for specific questions regarding your proposal.
-    </p>
-
+    </p>    
   </div>
+  
 </div>
+<Footer />
 </>
     // </main>
   );

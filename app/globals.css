@@ -83,6 +83,18 @@ ul.headermenu > li > a {
   border-radius: 22px;
   display: block;
 }
+
+.copyright-section {
+  border-top: 1px solid #363636;
+  font-size: 12px;
+  padding: 20px 0;
+  background: #fff;
+  color: #7f7f7f;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -8,6 +8,7 @@ interface MenuNavigationItem {
   current: boolean;
 }
 
+
 const headerNavigation: MenuNavigationItem[] = [
   { name: 'Home', href: '/', current: false },
   { name: 'Register', href: '/workbench', current: false },
@@ -24,6 +25,8 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => setIsOpen(!isOpen);
     return (
         <>
         <div className="flex items-center bg-white border-b">
@@ -50,10 +53,10 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
             <a className="font-semibold text-blue-600 active" href="/">Home</a>
           </li>
           <li>
-            <a className="text-gray-700 hover:text-blue-600" href="#">Register</a>
+            <a className="text-gray-700 hover:text-blue-600" onClick={togglePopup} href="#">Register</a>
           </li>
           <li>
-            <a className="text-gray-700 hover:text-blue-600" href="/signin">Sign In</a>
+            <a className="text-gray-700 hover:text-blue-600 whitespace-nowrap" href="/signin">Sign In</a>
           </li>
           <li>
             <a className="text-gray-700 hover:text-blue-600" href="/content/community-support-donations.html">Community Support Donations</a>
@@ -74,6 +77,32 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
       </div>
     </div>
   </nav>
+  {/* Popup Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white w-full max-w-4xl h-[80vh] rounded-lg shadow-xl relative overflow-hidden">
+            
+            {/* Header / Close Button */}
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="text-lg font-semibold">Register</h3>
+              <button 
+                onClick={togglePopup}
+                className="text-gray-500 hover:text-black text-2xl"
+              >
+                &times;
+              </button>
+            </div>
+
+            {/* Iframe Content */}
+            <iframe 
+              src="https://exelixisgrantsreview1.review.steeprockinc.com/b5register/grantreg?registerId=4292" // Replace with your desired URL
+              title="Register"
+              className="w-full h-full border-none"
+              sandbox="allow-scripts allow-same-origin allow-popups"
+            />
+          </div>
+        </div>
+      )}
 </div>
         </>
     );

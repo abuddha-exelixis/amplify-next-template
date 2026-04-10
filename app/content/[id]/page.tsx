@@ -9,6 +9,7 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { useParams } from "next/navigation";
+import Footer from "@/components/ui/footer";
 
 Amplify.configure(outputs);
 
@@ -53,6 +54,7 @@ export default function App() {
 
   </div>
 </div>
+<Footer />
 </>
     // </main>
   );
