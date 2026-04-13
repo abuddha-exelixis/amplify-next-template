@@ -40,11 +40,18 @@ const sendEmail = async (e: any) => {
   e.preventDefault();
   console.log('Email :', email);
   // return false;
-  const response = await fetch('https://exelixisgrantsreview1.review.steeprockinc.com/b5login/recoverLink?callback=jQuery21306894302821001276_1775729363363&email='+email, {
+  const response = await fetch('https://exelixisgrantsreview1.review.steeprockinc.com/b5login/recoverLink?callback=jQuery21305049770355766257_1776093233862&email='+email+'&_=1776093233862', {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {'Accept': 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01',
+      'Accept-Encoding': 'gzip, deflate, br, zstd'
+    },
+    cache: 'no-cache'    
   });
-  if (response.ok) alert("Check your email!");
+  if (response.ok) {
+    // alert("Check your email!");
+    const data = response.json();
+    console.log("Forgot Password Reset: ", data);
+  }
 };
 
 

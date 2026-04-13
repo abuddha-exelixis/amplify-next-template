@@ -79,8 +79,8 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
   </nav>
   {/* Popup Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white w-full max-w-4xl h-[80vh] rounded-lg shadow-xl relative overflow-hidden">
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50 p-0">
+          <div className="bg-white w-full h-full shadow-xl relative overflow-hidden">
             
             {/* Header / Close Button */}
             <div className="flex justify-between items-center p-4 border-b">
