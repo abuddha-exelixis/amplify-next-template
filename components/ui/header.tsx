@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
               src="https://exelixisgrantsreview1.review.steeprockinc.com/b5register/grantreg?registerId=4292" // Replace with your desired URL
               title="Register"
               className="w-full h-full border-none"
-              sandbox="allow-scripts allow-same-origin allow-popups"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
             />
           </div>
         </div>
