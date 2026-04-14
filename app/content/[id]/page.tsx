@@ -49,7 +49,7 @@ export default function App() {
     <>
     <Navigation />
 
-<div className="max-w-7xl mx-auto px-4">
+<div className="max-w-7xl mx-auto">
   <div className="content-wrapper space-y-6" dangerouslySetInnerHTML={{ __html : defaultContent}}>
 
   </div>

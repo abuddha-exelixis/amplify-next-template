@@ -37,7 +37,7 @@ export default function App() {
     <>
     <Navigation />
 
-<div className="max-w-7xl mx-auto px-4">
+<div className="max-w-7xl mx-auto">
   <div className="content-wrapper space-y-6">
 
     <h1 className="text-2xl font-bold">Welcome to the Exelixis Grants and Giving Portal</h1>

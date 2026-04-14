@@ -29,26 +29,23 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
   const togglePopup = () => setIsOpen(!isOpen);
     return (
         <>
-        <div className="flex items-center bg-white border-b">
-  <div className="logo-section">
-    <img src="/images/Exelixis_logo.svg" color="white" alt="Exelixis" title="Exelixis" />
-    {/* Exelixis */}
-  </div>
+        <div className="flex items-center bg-white border-b header-container">
+  
 
-  <nav className="flex-grow bg-white">
+  <nav className="flex-grow ml-80">
     <div className="flex items-center justify-between w-full">
       <button className="block lg:hidden p-2 border rounded" type="button" 
         data-collapse-toggle="navbarNav">
         <span className="sr-only">Toggle navigation</span>
         { <svg className="w-6 h-6" fill="none" stroke="currentColor" 
           viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" 
-            stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path strokeLinecap="round" strokeLinejoin="round" 
+            strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg> }
       </button>
 
       <div className="hidden lg:flex lg:items-center lg:space-x-6" id="navbarNav">
-        <ul className="flex space-x-6 ml-3 headermenu">
+        <ul className="flex space-x-6 ml-1 headermenu">
           <li>
             <a className="font-semibold text-blue-600 active" href="/">Home</a>
           </li>

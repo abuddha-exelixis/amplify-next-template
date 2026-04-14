@@ -60,7 +60,7 @@ const sendEmail = async (e: any) => {
     <>
       <Navigation />
 
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto">
         <div className="content-wrapper space-y-6">
           <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">            
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">

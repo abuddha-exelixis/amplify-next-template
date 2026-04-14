@@ -38,6 +38,13 @@ body {
   height: auto;
 }
 
+.header-container {
+  background-image: url(../public/images/banner_extended.png);
+    background-position-y: center;
+    width: 100%;
+    background-repeat: repeat-x;
+    min-height: 6vw;
+}
 /* Active nav style */
 .nav-link.active-custom {
   background-color: #f05a22;
@@ -55,12 +62,21 @@ body {
 .content-wrapper {
   background: #fff;
   padding: 50px;
-  margin-top: 40px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+.content-wrapper p {
+  font-size: 16px;
+}
+
+.content-wrapper ul.list-disc li {
+  list-style-type: inherit;
+  padding-left: 25px;
+}
+
 h1 {
-  font-weight: 400;
+  font-size: 36px;
+  font-weight: bold;
   margin-bottom: 25px;
 }
 
