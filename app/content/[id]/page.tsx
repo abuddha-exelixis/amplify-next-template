@@ -19,7 +19,6 @@ export default function App() {
   
   function retrieveStaticContent(contentDetails: any) {
     // const params = useParams();
-    console.log("This is the static content", contentDetails);
     let htmlContent = '<h1 className="text-2xl font-bold">Page Not Found</h1>';
     if (contentDetails['id'] === 'community-support-donations.html') {
       htmlContent = '<h1 className="text-2xl font-bold">Community Support Donations</h1><p>      Monetary charitable contributions to support 501(c)(3), 501(c)(4), and 501(c)(6) non-profit organizations’ initiatives or general missions in support of local community causes.</p><p>Community Support Donation proposals must be submitted at least 60 days prior to program start date, if applicable.</p><p>Health- and cancer-focused program support requests should be submitted in the Healthcare-Related Charitable Contributions category.</p>';
@@ -35,21 +34,31 @@ export default function App() {
     setdefaultContent(htmlContent);
   }
   const params = useParams();
-  console.log('Params : ', params['id']);
-
+  
   const [defaultContent, setdefaultContent] = useState<string>('<span></span>');
 
   useEffect(() => {
     retrieveStaticContent(params);
   }, []);
+
+  const headerNavigation = [
+  { key: 1, name: 'Home', href: '/', current: false },
+  { key: 2, name: 'Register', href: '#', current: false },
+  { key: 3, name: 'Sign In', href: '/signin', current: false },
+  { key: 4, name: 'Community Support Donations', href: '/content/community-support-donations.html', current: (params['id'] == 'community-support-donations.html'?true:false) },
+  { key: 5, name: 'Healthcare - Related Charitable Contributions', href: '/content/hrc_contributions.html', current: (params['id'] == 'hrc_contributions.html'?true:false) },
+  { key: 6, name: 'Independent Patient Assistance Foundation', href: '/content/ipaf.html', current: (params['id'] == 'ipaf.html'?true:false) },
+  { key: 7, name: 'Medical Education Grants', href: '/content/meded.html', current: (params['id'] == 'meded.html'?true:false) },
+  { key: 8, name: 'Sponsorships', href: '/content/sponsorships.html', current: (params['id'] == 'sponsorships.html'?true:false) },
+];
   
 
   
   return (
     <>
-    <Navigation />
+    <Navigation navigation={headerNavigation}/>
 
-<div className="max-w-7xl mx-auto">
+<div className="max-w mx-auto">
   <div className="content-wrapper space-y-6" dangerouslySetInnerHTML={{ __html : defaultContent}}>
 
   </div>

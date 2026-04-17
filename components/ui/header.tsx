@@ -3,21 +3,24 @@
 import { useState, useEffect } from "react";
 
 interface MenuNavigationItem {
+  key: number;
   name: string;
   href: string;
   current: boolean;
 }
 
+const inputParams: any = {};
+
 
 const headerNavigation: MenuNavigationItem[] = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Register', href: '/workbench', current: false },
-  { name: 'Sign In', href: '/signin', current: false },
-  { name: 'Community Support Donations', href: '/summary', current: false },
-  { name: 'Healthcare - Related Charitable Contributions', href: '/chatbot', current: false },
-  { name: 'Independent Patient Assistance Foundation', href: '/chatbot', current: false },
-  { name: 'Medical Education Grants', href: '/chatbot', current: false },
-  { name: 'Sponsorships', href: '/chatbot', current: false },
+  { key: 1, name: 'Home', href: '/', current: true },
+  { key: 2, name: 'Register', href: '#', current: false },
+  { key: 3, name: 'Sign In', href: '/signin', current: false },
+  { key: 4, name: 'Community Support Donations', href: '/content/community-support-donations.html', current: false },
+  { key: 5, name: 'Healthcare - Related Charitable Contributions', href: '/content/hrc_contributions.html', current: false },
+  { key: 6, name: 'Independent Patient Assistance Foundation', href: '/content/ipaf.html', current: false },
+  { key: 7, name: 'Medical Education Grants', href: '/content/meded.html', current: false },
+  { key: 8, name: 'Sponsorships', href: '/content/sponsorships.html', current: false },
 ];
 
 interface NavbarProps {
@@ -42,14 +45,15 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
           <path strokeLinecap="round" strokeLinejoin="round" 
             strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg> }
-      </button>
-
+      </button>           
       <div className="hidden lg:flex lg:items-center lg:space-x-6" id="navbarNav">
         <ul className="flex space-x-6 ml-1 headermenu">
-          <li>
-            <a className="font-semibold text-blue-600 active" href="/">Home</a>
-          </li>
-          <li>
+          {navigation.map((item) => (
+            <li>
+              <a onClick={item.name == 'Register'? togglePopup : undefined} className={item.current?'font-semibold text-blue-600 active':'text-gray-700 hover:text-blue-600'} href={item.href}>{item.name}</a>
+            </li>
+          ))}
+          {/* <li>
             <a className="text-gray-700 hover:text-blue-600" onClick={togglePopup} href="#">Register</a>
           </li>
           <li>
@@ -69,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ navigation = headerNavigation }) => {
           </li>
           <li>
             <a className="text-gray-700 hover:text-blue-600" href="/content/sponsorships.html">Sponsorships</a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

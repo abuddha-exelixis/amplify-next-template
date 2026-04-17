@@ -14,6 +14,17 @@ Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
 
+const headerNavigation = [
+  { key: 1, name: 'Home', href: '/', current: true },
+  { key: 2, name: 'Register', href: '#', current: false },
+  { key: 3, name: 'Sign In', href: '/signin', current: false },
+  { key: 4, name: 'Community Support Donations', href: '/content/community-support-donations.html', current: false },
+  { key: 5, name: 'Healthcare - Related Charitable Contributions', href: '/content/hrc_contributions.html', current: false },
+  { key: 6, name: 'Independent Patient Assistance Foundation', href: '/content/ipaf.html', current: false },
+  { key: 7, name: 'Medical Education Grants', href: '/content/meded.html', current: false },
+  { key: 8, name: 'Sponsorships', href: '/content/sponsorships.html', current: false },
+];
+
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
@@ -35,9 +46,9 @@ export default function App() {
 
   return (
     <>
-    <Navigation />
+    <Navigation  navigation={headerNavigation}/>
 
-<div className="max-w-7xl mx-auto">
+<div className="max-w mx-auto">
   <div className="content-wrapper space-y-6">
 
     <h1 className="text-2xl font-bold">Welcome to the Exelixis Grants and Giving Portal</h1>

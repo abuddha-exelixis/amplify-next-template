@@ -24,6 +24,16 @@ export default function signIn() {
   const [isVisible, setIsVisible] =  useState(true);
   const [formMethod, setFormMethod] =  useState("POST");
   const [formURL, setFormURL] = useState('postAuth');
+  const headerNavigation = [
+  { key: 1, name: 'Home', href: '/', current: false },
+  { key: 2, name: 'Register', href: '#', current: false },
+  { key: 3, name: 'Sign In', href: '/signin', current: true },
+  { key: 4, name: 'Community Support Donations', href: '/content/community-support-donations.html', current: false },
+  { key: 5, name: 'Healthcare - Related Charitable Contributions', href: '/content/hrc_contributions.html', current: false },
+  { key: 6, name: 'Independent Patient Assistance Foundation', href: '/content/ipaf.html', current: false },
+  { key: 7, name: 'Medical Education Grants', href: '/content/meded.html', current: false },
+  { key: 8, name: 'Sponsorships', href: '/content/sponsorships.html', current: false },
+];
   const displayForgotPassword = () => { 
     setIsVisible(false);
     setFormMethod("GET");
@@ -38,7 +48,6 @@ export default function signIn() {
   // app/forgot-password/page.tsx
 const sendEmail = async (e: any) => {
   e.preventDefault();
-  console.log('Email :', email);
   // return false;
   const response = await fetch('https://exelixisgrantsreview1.review.steeprockinc.com/b5login/recoverLink?callback=jQuery21305049770355766257_1776093233862&email='+email+'&_=1776093233862', {
     method: 'GET',
@@ -50,7 +59,6 @@ const sendEmail = async (e: any) => {
   if (response.ok) {
     // alert("Check your email!");
     const data = response.json();
-    console.log("Forgot Password Reset: ", data);
   }
 };
 
@@ -58,9 +66,9 @@ const sendEmail = async (e: any) => {
 
   return (
     <>
-      <Navigation />
+      <Navigation navigation={headerNavigation} />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w mx-auto">
         <div className="content-wrapper space-y-6">
           <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">            
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
