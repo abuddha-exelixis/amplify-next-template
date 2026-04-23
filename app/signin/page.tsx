@@ -9,7 +9,7 @@ import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { useSearchParams } from "next/navigation";
 import Footer from "@/components/ui/footer";
-import Link from "next/link";
+import axios from 'axios';
 
 Amplify.configure(outputs);
 
@@ -22,6 +22,7 @@ export default function signIn() {
 
   const params = useSearchParams();
   const [isVisible, setIsVisible] =  useState(true);
+  const [displaySuccessMsg, setDisplaySuccessMsg] =  useState(false);
   const [formMethod, setFormMethod] =  useState("POST");
   const [formURL, setFormURL] = useState('postAuth');
   const headerNavigation = [
@@ -36,6 +37,7 @@ export default function signIn() {
 ];
   const displayForgotPassword = () => { 
     setIsVisible(false);
+    setDisplaySuccessMsg(false);
     setFormMethod("GET");
     setFormURL("recoverLink");
   }
@@ -48,18 +50,13 @@ export default function signIn() {
   // app/forgot-password/page.tsx
 const sendEmail = async (e: any) => {
   e.preventDefault();
-  // return false;
-  const response = await fetch('https://exelixisgrantsreview1.review.steeprockinc.com/b5login/recoverLink?callback=jQuery21305049770355766257_1776093233862&email='+email+'&_=1776093233862', {
-    method: 'GET',
-    headers: {'Accept': 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01',
-      'Accept-Encoding': 'gzip, deflate, br, zstd'
-    },
-    cache: 'no-cache'    
-  });
-  if (response.ok) {
-    // alert("Check your email!");
-    const data = response.json();
-  }
+  axios.get('https://exelixisgrantsreview1.review.steeprockinc.com/b5login/recoverLink', {params:   {callback: 'jQuery21306882012291047174_'+Math.floor(Date.now() / 1000),email: email, _ : Math.floor(Date.now() / 1000),}}).then((response) => {
+    setDisplaySuccessMsg(true);
+    displaySignIn();
+  }).catch((error) => {
+    setDisplaySuccessMsg(true);
+    displaySignIn();
+  })  
 };
 
 
@@ -76,6 +73,10 @@ const sendEmail = async (e: any) => {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+              <div className={displaySuccessMsg ? 'bg-blue-100 border text-blue-500 px-4 py-3 rounded relative': 'hidden'} role="info">
+              <div className="py-1"><svg className="fill-current h-6 w-6 inline mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg>
+                <span className="sm:inline">Reset password link will be sent to your email address within 5 minutes</span>  </div>
+            </div>
               {params.get('loginError')? (
               <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
               <div className="py-1"><svg className="fill-current h-6 w-6 inline mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" /></svg>
@@ -99,7 +100,7 @@ const sendEmail = async (e: any) => {
                 </div>
 
                 <div className={isVisible ? '': 'hidden'}>
-                  <button type="submit" className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-brand-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                  <button type="submit" className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-brand-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in </button>
                 </div>
                 <div className={!isVisible ? '': 'hidden'}>
                   <button type="button" className="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-brand-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendEmail}>Email New Password</button>
