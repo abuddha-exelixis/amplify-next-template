@@ -83,8 +83,7 @@ export default function App() {
     </p>
 
     <p className="font-bold">
-      Please refer to the <a href="#" className="text-blue-600 underline">Exelixis - Grant Requestor Guide</a>
-      for details regarding the submission and processing of your proposal
+      Please refer to the <a href="https://dochub.com/andra-hodges/qd0E4NeKgrn7ZjJRJ9LYyj/exelixis-grant-requestor-guide-pdf?dt=KcGaPV1yHxg3fG93LRHy" className="text-blue-600 underline" target="_blank">Exelixis - Grant Requestor Guide</a> for details regarding the submission and processing of your proposal
     </p>
 
     <p className="font-bold">
@@ -97,9 +96,7 @@ export default function App() {
     </p>
 
     <p>
-      You may also contact the Exelixis team via email at
-      <a href="mailto:grants@exelixis.com" className="text-blue-600 underline">grants@exelixis.com</a>
-      for specific questions regarding your proposal.
+      You may also contact the Exelixis team via email at <a href="mailto:grants@exelixis.com" className="text-blue-600 underline">grants@exelixis.com</a> for specific questions regarding your proposal.
     </p>    
   </div>
   
